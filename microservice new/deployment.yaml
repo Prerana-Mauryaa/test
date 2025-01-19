@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: business
-        image: flask-grpc-app:latest
+        image: preranamauryaa/microservice-businessservice:latest
         ports:
         - containerPort: 5055
         env:
