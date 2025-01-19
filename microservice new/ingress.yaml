@@ -16,7 +16,7 @@ spec:
                   number: 80        
     - http:
         paths:
-          - path: /bsuiness
+          - path: /business
             pathType: Prefix
             backend:
               service:
