@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name | default "business-service" }}
+  name: {{ .Values.name | default "business-service" }}-canary
   namespace: {{ .Values.namespace | default "business-service" }}
   labels:
     {{- include "business-service.labels" . | nindent 4 }}
