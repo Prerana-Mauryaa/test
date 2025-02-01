@@ -1,4 +1,4 @@
-{{- if eq .Values.canary "true" }}
+{{- if eq .Values.canaryenable True }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,24 +6,24 @@ metadata:
   namespace: {{ .Values.namespace | default "business-service" }}
   labels:
     {{- include "business-service.labels" . | nindent 4 }}
-    canary: {{ .Values.labels.canary | quote }}
+    canary: {{ .Values.canary.labels.canary | quote }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.canary.replicaCount }}
   selector:
     matchLabels:
       {{- include "business-service.labels" . | nindent 6 }}
-      canary: {{ .Values.labels.canary | quote }}
+      canary: {{ .Values.canary.labels.canary | quote }}
   template:
     metadata:
       labels:
         {{- include "business-service.labels" . | nindent 8 }}
-        canary: {{ .Values.labels.canary | quote }}
+        canary: {{ .Values.canary.labels.canary | quote }}
     spec:
       serviceAccountName: {{ .Values.serviceAccount.name | default "business-service" }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       containers:
       - name: business
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.canary.image.repository }}:{{ .Values.canary.image.tag }}"
         ports:
         - containerPort: {{ .Values.service.targetPort }}
         env:

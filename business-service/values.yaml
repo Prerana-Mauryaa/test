@@ -3,15 +3,25 @@
 #canary version
 name: business-service
 namespace: business-service
-labels:
-  canary: "true"
+canaryenable: False 
 
-replicaCount: 0
+stable:
+  labels:
+    canary: "false"
+  replicaCount: 1
+  image:
+    repository: preranamauryaa/microservice-businessservice
+    tag: latest #will be changed while deploying
+    pullPolicy: IfNotPresent
 
-image:
-  repository: preranamauryaa/microservice-businessservice
-  tag: latest #will be changed while deploying
-  pullPolicy: IfNotPresent
+canary:
+  labels:
+    canary: "true"
+  replicaCount: 0
+  image:
+    repository: preranamauryaa/microservice-businessservice
+    tag: latest #will be changed while deploying
+    pullPolicy: IfNotPresent
 
 service:
   type: LoadBalancer
