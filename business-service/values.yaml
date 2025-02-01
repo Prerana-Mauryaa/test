@@ -3,7 +3,7 @@
 #canary version
 name: business-service
 namespace: business-service
-canaryenable: False 
+canaryenable: false 
 
 stable:
   labels:

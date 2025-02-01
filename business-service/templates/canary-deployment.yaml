@@ -1,4 +1,4 @@
-{{- if eq .Values.canaryenable True }}
+{{- if eq .Values.canaryenable true }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
