@@ -1,7 +1,7 @@
 # values.yaml
 defaults:
-  host: "frontend.frontend.svc.cluster.local" # will be changed dynamically while deploying
-  namespace: "frontend" # will be changed dynamically while deploying
+  host: "//it will change dynamically" # will be changed dynamically while deploying
+  namespace: "business-service" # will be changed dynamically while deploying
 
 virtualService:
   name: "virtualservice" 
