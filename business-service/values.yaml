@@ -55,7 +55,7 @@ resources:
     memory: 128Mi
 
 serviceAccount:
-  create: false
+  create: true
   name: business-service
 
 terminationGracePeriodSeconds: 30
