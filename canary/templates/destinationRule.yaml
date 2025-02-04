@@ -8,7 +8,7 @@ spec:
   subsets:
   - name: stable
     labels:
-      version: {{ .Values.subsets.stable.version }}
+      canary: {{ .Values.subsets.stable.canary }}
   - name: canary
     labels:
-      version: {{ .Values.subsets.canary.version }}
+      canary: {{ .Values.subsets.canary.canary }}
