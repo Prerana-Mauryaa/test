@@ -11,7 +11,7 @@ stable:
   replicaCount: 1
   image:
     repository: preranamauryaa/microservice-businessservice
-    tag: latest #will be changed while deploying
+    tag: v5 #will be changed while deploying
     pullPolicy: IfNotPresent
 
 canary:
@@ -20,7 +20,7 @@ canary:
   replicaCount: 0
   image:
     repository: preranamauryaa/microservice-businessservice
-    tag: latest #will be changed while deploying
+    tag: v5 #will be changed while deploying
     pullPolicy: IfNotPresent
 
 service:

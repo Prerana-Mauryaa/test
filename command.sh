@@ -1,12 +1,13 @@
-helm upgrade --install --namespace business-service \
+helm upgrade --install canary ./canary --namespace business-service \
 --set defaults.host=business-service.business-service.svc.cluster.local \
---set defaults.namespace=business-service canary ./canary
+--set defaults.namespace=business-service 
 
+helm upgrade --install business-service ./business-service --namespace business-service \
+--set stable.image.tag=v5
 
-helm upgrade --install --namespace business-service \
---values ./business-service/stable-values.yaml \
---set image.tag=v1 business-service ./business-service
+helm upgrade --install business-service ./business-service --namespace business-service \
+--set canary.image.tag=v6
+--set canary.replicaCount=1
 
-helm upgrade --install --namespace business-service \
---values ./business-service/canary-values.yaml \
---set image.tag=v2 business-service ./business-service
+helm template  --install business-service ./business-service --namespace business-service \
+--set stable.image.tag=v5
