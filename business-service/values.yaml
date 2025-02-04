@@ -20,7 +20,7 @@ canary:
   replicaCount: 0
   image:
     repository: preranamauryaa/microservice-businessservice
-    tag: v5 #will be changed while deploying
+    tag: v7 #will be changed while deploying
     pullPolicy: IfNotPresent
 
 service:
